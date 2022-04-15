@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <div class="wrapper">
+ 
+    <div >
 
-    <NavbarView></NavbarView>
+    <NavbarView/>
 
     <SideBar></SideBar>
 
     <router-view></router-view>
     
-  </div>
   </div>
 </template>
 
