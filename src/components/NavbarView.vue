@@ -119,7 +119,7 @@
         </a>
       </li>
     </ul>
-  </nav>
+      </nav>
     </div>
 </template>
 <script>

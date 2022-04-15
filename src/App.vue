@@ -1,25 +1,30 @@
 <template>
- 
-    <div >
+    <div class="wrapper">
 
-    <NavbarView/>
+        <!-- Navbar -->
+         <NavbarView/>
+        <!-- /.navbar -->
 
-    <SideBar></SideBar>
+        <!-- Main Sidebar Container -->
+        <SideBar/>
 
-    <router-view></router-view>
-    
-  </div>
+        <!-- Content Wrapper. Contains page content -->
+   
+        <router-view/>
+      
+        <!-- /.content-wrapper -->
+        
+    </div>
 </template>
-
 <script>
-import NavbarView from "@/components/NavbarView.vue"
-import SideBar from "@/components/SideBar.vue"
-
+import NavbarView from "./components/NavbarView.vue"
+import SideBar from "./components/SideBar.vue"
 export default {
-  name: 'App',
-  components: {
+components:{
     NavbarView,
-    SideBar,
-  }
+    SideBar
+}
 }
 </script>
+<style>
+</style>
