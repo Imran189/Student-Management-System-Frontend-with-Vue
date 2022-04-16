@@ -53,7 +53,7 @@
                         <router-link :to="{name:'RegisterView'}" class="text-center">Register a new membership</router-link>
                     </p>
                 </div>
-                <!-- /.login-card-body -->
+              
             </div>
         </div>
     </div>
