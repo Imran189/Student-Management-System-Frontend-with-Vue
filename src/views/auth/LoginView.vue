@@ -43,8 +43,6 @@
                         </div>
                     </form>
 
-                    
-                    <!-- /.social-auth-links -->
 
                     <p class="mb-1">
                          <router-link :to="{name:'ForgetView'}">I forgot my password</router-link>
