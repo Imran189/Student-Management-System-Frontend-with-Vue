@@ -2,11 +2,11 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-         <NavbarView/>
+         <NavbarView v-if="auth"></NavbarView>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <SideBar/>
+        <SideBar v-if="auth"></SideBar>
 
         <!-- Content Wrapper. Contains page content -->
    
@@ -20,6 +20,11 @@
 import NavbarView from "./components/NavbarView.vue"
 import SideBar from "./components/SideBar.vue"
 export default {
+    data() {
+        return {
+            auth:false
+        }
+    },
 components:{
     NavbarView,
     SideBar
