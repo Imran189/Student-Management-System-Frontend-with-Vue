@@ -2,11 +2,11 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-         <NavbarView v-if="auth"></NavbarView>
+         <NavbarView v-if="loggedInStatus"></NavbarView>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <SideBar v-if="auth"></SideBar>
+        <SideBar v-if="loggedInStatus"></SideBar>
 
         <!-- Content Wrapper. Contains page content -->
    
@@ -20,15 +20,16 @@
 import NavbarView from "./components/NavbarView.vue"
 import SideBar from "./components/SideBar.vue"
 export default {
-    data() {
-        return {
-            auth:false
-        }
-    },
+
 components:{
     NavbarView,
     SideBar
-}
+},
+computed: {
+    loggedInStatus() {
+        return this.$store.getters.GET_AUTH_STATUS;
+    }
+},
 }
 </script>
 <style>

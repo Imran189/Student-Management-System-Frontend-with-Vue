@@ -72,11 +72,12 @@ methods: {
     adminLogin() {
         this.$store.dispatch("LOGIN", this.form)
         .then((response)=>{
-                    console.log(response.data)
-                }) 
-                .catch((error)=>{
-                    console.log(error.response.data.errors)
-                })
+            this.$router.push({name:'HomeView'})
+            console.log(response.data)
+        }) 
+        .catch((error)=>{
+            console.log(error.response.data.errors)
+        })
     }
 },
 }

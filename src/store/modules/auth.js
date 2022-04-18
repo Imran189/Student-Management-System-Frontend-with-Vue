@@ -13,7 +13,7 @@ export const auth={
     },
 
     getters:{
-        GET_AUTH_STATE(state){
+        GET_AUTH_STATUS(state){
             return state.auth_status
         },
         GET_AUTH_TOKEN(state){
@@ -31,6 +31,7 @@ export const auth={
                 .then((response)=>{
                     resolve(response)
                     context.commit('SET_AUTH_TOKEN', response.data.access_token)
+                    context.commit('SET_AUTH_INFO', response.data.user)
                     console.log(response.data)
                 }) 
                 .catch((error)=>{
@@ -42,8 +43,16 @@ export const auth={
     },
 
     mutations:{
-        SET_AUTH_TOKEN(){
-            
+        SET_AUTH_TOKEN(state,token){
+            state.auth_token = token;
+            state.auth_status = true
+        },
+        SET_AUTH_INFO(state,info){
+            state.auth_info.name = info.name;
+            state.auth_info.email = info.email;
+            state.auth_info.phone = info.phone;
+            state.auth_info.image = info.image;
+           
         }
     }
 }
