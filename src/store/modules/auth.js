@@ -1,4 +1,5 @@
 import axios from 'axios'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1';
 export const auth={
     state:{
         auth_status:false,
@@ -25,17 +26,24 @@ export const auth={
 
     actions:{
         LOGIN(context,formData){
-        axios.post('http://127.0.0.1:8000/api/v1/login',formData)
-       .then((response)=>{
-           console.log(response.data)
-       }) 
-       .catch((error)=>{
-           console.log(error.response.data.errors)
-       })
+            return new Promise((resolve,reject)=>{
+                axios.post('/login',formData)
+                .then((response)=>{
+                    resolve(response)
+                    context.commit('SET_AUTH_TOKEN', response.data.access_token)
+                    console.log(response.data)
+                }) 
+                .catch((error)=>{
+                    reject(error)
+                    console.log(error.response.data.errors)
+                })
+            })
         }
     },
 
     mutations:{
-
+        SET_AUTH_TOKEN(){
+            
+        }
     }
 }
