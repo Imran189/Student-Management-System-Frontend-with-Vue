@@ -57,7 +57,7 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+
 export default {
 name:'LoginView',
 data() {
@@ -70,13 +70,8 @@ data() {
 },
 methods: {
     adminLogin() {
-    //    axios.post('http://127.0.0.1:8000/api/v1/login',this.form)
-    //    .then((response)=>{
-    //        console.log(response.data)
-    //    }) 
-    //    .catch((error)=>{
-    //        console.log(error.response.data.errors)
-    //    })
+        this.$store.dispatch("LOGIN", this.form)
+    
     }
 },
 }
