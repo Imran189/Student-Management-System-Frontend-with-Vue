@@ -41,6 +41,7 @@ export const auth={
             })
         },
         LOGOUT(context){
+            axios.defaults.headers.common['Authorization'] ='Bearer '+context.state.auth_token;
             return new Promise((resolve,reject)=>{
                 axios.post('/logout')
                 .then((response)=>{
