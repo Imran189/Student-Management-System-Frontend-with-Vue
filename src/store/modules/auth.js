@@ -39,6 +39,20 @@ export const auth={
                     console.log(error.response.data.errors)
                 })
             })
+        },
+        LOGOUT(context){
+            return new Promise((resolve,reject)=>{
+                axios.post('/logout')
+                .then((response)=>{
+                    resolve(response)
+                    context.commit('SET_AUTH_LOGOUT')
+                    console.log(response.data)
+                }) 
+                .catch((error)=>{
+                    reject(error)
+                    console.log(error.response.data.errors)
+                })
+            })
         }
     },
 
@@ -53,6 +67,16 @@ export const auth={
             state.auth_info.phone = info.phone;
             state.auth_info.image = info.image;
            
+        },
+        SET_AUTH_LOGOUT(state){
+            state.auth_token = null;
+            state.auth_status = false;
+            state.auth_info={
+                name:null,
+                email:null,
+                phone:null,
+                image:null
+            }
         }
     }
 }
