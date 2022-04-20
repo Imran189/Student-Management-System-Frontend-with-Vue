@@ -2,16 +2,16 @@
   <div class="hold-transition register-page">
     <div class="register-box">
       <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <router-link :to="{name:'HomeView'}" href="#"><b>Admin</b>LTE</router-link>
       </div>
 
       <div class="card">
         <div class="card-body register-card-body">
           <p class="login-box-msg">Register a new membership</p>
 
-          <form action="../../index.html" method="post">
+          <form @submit.prevent="adminRegister">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Full name" />
+              <input type="text" class="form-control" placeholder="Full name" v-model="form.name" />
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
@@ -19,7 +19,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input type="email" class="form-control" placeholder="Email" v-model="form.email" />
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Phone" />
+              <input type="text" class="form-control" placeholder="Phone" v-model="form.phone" />
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-phone"></span>
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="file" class="form-control"  />
+              <input type="file" class="form-control" />
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-image"></span>
@@ -47,6 +47,7 @@
                 type="password"
                 class="form-control"
                 placeholder="Password"
+                v-model="form.password"
               />
               <div class="input-group-append">
                 <div class="input-group-text">
@@ -59,6 +60,7 @@
                 type="password"
                 class="form-control"
                 placeholder="Retype password"
+                v-model="form.password_confirmation"
               />
               <div class="input-group-append">
                 <div class="input-group-text">
@@ -101,7 +103,23 @@
 </template>
 <script>
 export default {
-    name:'RegisterView'
+    name:'RegisterView',
+    data() {
+      return {
+        form:{
+          name:null,
+          email:null,
+          phone:null,
+          password:null,
+          password_confirmation:null
+        }
+      }
+    },
+    methods: {
+      adminRegister() {
+        alert('registration clicked')
+      }
+    },
 };
 </script>
 <style ></style>
