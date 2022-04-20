@@ -18,6 +18,7 @@
                 </div>
               </div>
             </div>
+            <span class="text-danger" v-if="errors.name">{{errors.name[0]}}</span>
             <div class="input-group mb-3">
               <input type="email" class="form-control" placeholder="Email" v-model="form.email" />
               <div class="input-group-append">
@@ -26,6 +27,8 @@
                 </div>
               </div>
             </div>
+            <span class="text-danger" v-if="errors.email">{{errors.email[0]}}</span>
+
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Phone" v-model="form.phone" />
               <div class="input-group-append">
@@ -34,6 +37,8 @@
                 </div>
               </div>
             </div>
+            <span class="text-danger" v-if="errors.phone">{{errors.phone[0]}}</span>
+
             <div class="input-group mb-3">
               <input type="file" class="form-control" />
               <div class="input-group-append">
@@ -49,6 +54,7 @@
                 placeholder="Password"
                 v-model="form.password"
               />
+            <span class="text-danger" v-if="errors.password">{{errors.password[0]}}</span>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -112,12 +118,21 @@ export default {
           phone:null,
           password:null,
           password_confirmation:null
-        }
+        },
+        errors:{},
       }
     },
     methods: {
       adminRegister() {
-        alert('registration clicked')
+         this.$store.dispatch("REGISTRATION", this.form)
+        .then((response)=>{
+            this.$router.push({name:'HomeView'})
+            console.log(response.data)
+        }) 
+        .catch((error)=>{
+            console.log(error.response.data.errors)
+            this.errors = error.response.data.errors
+        })
       }
     },
 };
