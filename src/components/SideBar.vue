@@ -170,7 +170,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tables
+                Table
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
