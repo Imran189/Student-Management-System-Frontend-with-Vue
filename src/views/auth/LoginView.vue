@@ -18,6 +18,7 @@
                                 </div>
                             </div>
                         </div>
+                            <span class="text-danger" v-if="errors.email">{{errors.email[0]}}</span>
                         <div class="input-group mb-3">
                             <input type="password" class="form-control" v-model="form.password" placeholder="Password">
                             <div class="input-group-append">
@@ -26,6 +27,7 @@
                                 </div>
                             </div>
                         </div>
+                      <span class="text-danger" v-if="errors.password">{{errors.password[0]}}</span>
                         <div class="row">
                             <div class="col-8">
                                 <div class="icheck-primary">
@@ -65,7 +67,8 @@ data() {
         form:{
             email:null,
             password:null
-        }
+        },
+        errors:{},
     }
 },
 methods: {
@@ -77,6 +80,7 @@ methods: {
         }) 
         .catch((error)=>{
             console.log(error.response.data.errors)
+             this.errors = error.response.data.errors
         })
     }
 },
