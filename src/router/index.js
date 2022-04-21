@@ -44,18 +44,20 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  // instead of having to check every route record with
-  // to.matched.some(record => record.meta.requiresAuth)
+
   if (to.meta.requiresAuth && !store.getters.GET_AUTH_STATUS) {
     return {
       path: '/',
       
     }
   }
-  if (to.meta.guest && store.getters.GET_AUTH_STATUS) {
+
+  else if (to.meta.guest && store.getters.GET_AUTH_STATUS) {
+
     return {
       path: '/admin/home',    
     }
   }
+
 })
 export default router
