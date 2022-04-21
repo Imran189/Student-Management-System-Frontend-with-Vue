@@ -47,8 +47,7 @@ router.beforeEach((to) => {
 
   if (to.meta.requiresAuth && !store.getters.GET_AUTH_STATUS) {
     return {
-      path: '/',
-      
+      path: '/',    
     }
   }
 
