@@ -26,6 +26,9 @@ const routes = [
     path: '/forget/pass',
     name: 'ForgetView',
     component: ForgetView,
+    meta:{
+      guest:true
+    }
   },
   {
     path: '/admin/home',
