@@ -55,6 +55,21 @@ export const auth={
                 })
             })
         },
+        FORGOT(context,forgotData){
+            return new Promise((resolve,reject)=>{
+                axios.post('/forgot',forgotData)
+                .then((response)=>{
+                    resolve(response)
+                    context.commit('SET_AUTH_TOKEN', response.data.access_token)
+                    context.commit('SET_AUTH_INFO', response.data.user)
+                    console.log(response.data)
+                }) 
+                .catch((error)=>{
+                    reject(error)
+                    console.log(error.response.data.errors)
+                })
+            })
+        },
 
         LOGOUT(context){
             axios.defaults.headers.common['Authorization'] ='Bearer '+context.state.auth_token;

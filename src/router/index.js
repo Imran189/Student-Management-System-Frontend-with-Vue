@@ -23,7 +23,7 @@ const routes = [
     }
   },
   {
-    path: '/forget/pass',
+    path: '/forget-password',
     name: 'ForgetView',
     component: ForgetView,
     meta:{
