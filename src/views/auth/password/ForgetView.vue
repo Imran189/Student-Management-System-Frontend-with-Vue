@@ -19,6 +19,7 @@
               </div>
             </div>
             <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
+            <span class="text-info" v-if="msg">{{ msg.message }}</span>
 
             <div class="row">
               <div class="col-12">
@@ -50,6 +51,7 @@ export default {
 
       },
       errors: {},
+      msg:null
     }
   },
   methods: {
@@ -57,7 +59,7 @@ export default {
       
       this.$store.dispatch("FORGOT", this.form)
         .then((response) => {
-
+          this.msg=response.data
           console.log(response.data)
         })
         .catch((error) => {
