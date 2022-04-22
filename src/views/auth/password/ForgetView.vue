@@ -60,6 +60,7 @@ export default {
       this.$store.dispatch("FORGOT", this.form)
         .then((response) => {
           this.msg=response.data
+          this.form.email=null
           console.log(response.data)
         })
         .catch((error) => {
