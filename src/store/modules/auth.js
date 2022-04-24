@@ -72,9 +72,9 @@ export const auth={
                 })
             })
         },
-        FORGOT(context,forgotData){
+        FORGOT(context,formData){
             return new Promise((resolve,reject)=>{
-                axios.post('/forgot',forgotData)
+                axios.post('/forgot',formData)
                 .then((response)=>{
                     resolve(response)
                     console.log(response.data)
@@ -85,6 +85,20 @@ export const auth={
                 })
             })
         },
+        
+        RESET(context,payload){
+            return new Promise((resolve,reject)=>{
+                axios.post('/reset',payload)
+                .then((response)=>{
+                    resolve(response)
+                    //console.log(response.data)
+                }) 
+                .catch((error)=>{
+                    reject(error)
+                   // console.log(error.response.data.errors)
+                })
+            })
+        }
     },
 
     mutations:{

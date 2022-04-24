@@ -4,6 +4,7 @@ import HomeView from '@/views/pages/HomeView.vue'
 import LoginView from '@/views/auth/LoginView.vue'
 import RegisterView from '@/views/auth/RegisterView.vue'
 import ForgetView from '@/views/auth/password/ForgetView.vue'
+import ResetView from '@/views/auth/password/ResetView.vue'
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     meta:{
       guest:true
     }
+  },
+  {
+    path: '/reset-password',
+    name: 'ResetView',
+    component: ResetView,
   },
   {
     path: '/admin/home',
