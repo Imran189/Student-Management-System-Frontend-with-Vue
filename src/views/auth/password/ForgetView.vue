@@ -30,10 +30,10 @@
           </form>
 
           <p class="mt-3 mb-1">
-            <router-link :to="{ name: 'LoginView' }">Login</router-link>
+            <router-link :to="{ name: 'LoginView' }"> Login</router-link>
           </p>
           <p class="mb-0">
-            <router-link :to="{ name: 'RegisterView' }" class="text-center">Register a new membership</router-link>
+            <router-link :to="{ name: 'RegisterView' }" class="text-center">Register  new membership</router-link>
           </p>
         </div>
         <!-- /.login-card-body -->
